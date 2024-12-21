@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/* Add this to your global styles */
+.slick-prev:before,
+.slick-next:before {
+  color: #000; /* Customize arrow colors */
+}
