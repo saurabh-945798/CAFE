@@ -85,10 +85,8 @@
 // export default App;
 
 
-
-
 import React, { useState } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
 import Slider from "./Components/Slider";
 import Six from "./Components/Six";
 import FoodGrid from "./Components/FoodGrid";
@@ -97,16 +95,16 @@ import Cart from "./Components/Cart";
 import Pizza from "./Components/Pizza";
 import Payment from "./Components/Payment";
 import Admin from "./Components/Admin";
-import Menu from "./Components/Menu"; // Import the Menu Component
+import Menu from "./Components/Menu";
 import Checkout from "./Components/Track";
-import Bill from './Components/Bill'
+import Bill from "./Components/Bill";
 import Banner from "./Components/Banner";
 import Navbar from "./Components/Navbar";
-import AdminLogin from "./Components/Login"; // Import the AdminLogin Component
-const App = () => {
-  const [cartItems, setCartItems] = useState([]); // State for managing cart items
+import AdminLogin from "./Components/Login";
 
-  // Function to handle adding items to the cart
+const App = () => {
+  const [cartItems, setCartItems] = useState([]);
+
   const handleAddToCart = (item) => {
     const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
     if (existingItem) {
@@ -125,9 +123,7 @@ const App = () => {
   return (
     <Router>
       <div className="bg-gray-50 min-h-screen">
-        {/* Define application routes */}
         <Routes>
-          {/* Home Page */}
           <Route
             path="/"
             element={
@@ -140,34 +136,18 @@ const App = () => {
               </>
             }
           />
-
-          {/* Pizza Page */}
           <Route path="/pizza" element={<Pizza />} />
-
-          {/* Payment Page */}
           <Route path="/payment" element={<Payment />} />
-
           <Route path="/checkout" element={<Checkout />} />
-
-          {/* Admin Login Page */}
-          <Route path="/login" element={<AdminLogin />} /> {/* Login Route */}
-
-          {/* Admin Dashboard (Protected Route) */}
+          <Route path="/login" element={<AdminLogin />} />
           <Route path="/admin" element={<Admin />} />
-
           <Route path="/bill" element={<Bill />} />
-
-          {/* Menu Page */}
           <Route
             path="/menu"
             element={<Menu onAddToCart={handleAddToCart} />}
           />
         </Routes>
-
-        {/* Footer Component */}
         <Footer />
-
-        {/* Floating Cart (always visible) */}
         <Cart cartItems={cartItems} setCartItems={setCartItems} />
       </div>
     </Router>
