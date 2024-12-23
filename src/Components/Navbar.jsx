@@ -247,7 +247,7 @@ const Header = () => {
             className="flex items-center cursor-pointer text-green-600"
             onClick={handleLoginClick} // Handle click
           >
-            <span>👤</span> Login
+            <span>👤</span> Loginnnn
           </div>
         </div>
       </div>
